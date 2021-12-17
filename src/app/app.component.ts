@@ -31,8 +31,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.formGroup = new FormGroup({
       distance: new FormControl(null, [Validators.required, Validators.maxLength(5), Validators.minLength(1)]),
-      age: new FormControl(null, [Validators.required]),
-      weight: new FormControl(null, [Validators.required, Validators.maxLength(3)])
+      age: new FormControl(null, [Validators.required, Validators.maxLength(3)]),
+      weight: new FormControl(null, [Validators.required, Validators.maxLength(2)])
     });
   }
 

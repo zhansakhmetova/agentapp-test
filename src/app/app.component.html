@@ -22,6 +22,7 @@
                formControlName="age">
         <div *ngIf="formGroup.get('age').invalid && formGroup.get('age').touched" class="validation">
           <small *ngIf="formGroup.get('age').errors.required">Заполните обязательное поле</small>
+          <small *ngIf="formGroup.get('age').errors.maxlength">Максимальное количество не больше 3</small>
         </div>
       </div>
       <div class="form-control">
