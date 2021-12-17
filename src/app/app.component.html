@@ -1,0 +1,69 @@
+<main>
+  <section class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="convert(customerInfo.distance, customerInfo.age, customerInfo.weight)">
+      <div class="form">
+        <label for="distance">Количество километров</label>
+        <input type="text" id="distance"
+               autocomplete="off"
+               placeholder="Введите расстояние"
+               [(ngModel)]="customerInfo.distance"
+               formControlName="distance">
+        <div *ngIf="formGroup.get('distance').invalid && formGroup.get('distance').touched" class="validation">
+          <small *ngIf="formGroup.get('distance').errors.required">Заполните обязательное поле</small>
+          <small *ngIf="formGroup.get('distance').errors.maxlength">Максимальное количество 5</small>
+        </div>
+      </div>
+      <div class="form">
+        <label for="age">Возраст</label>
+        <input type="text" id="age"
+               placeholder="Введите возраст"
+               autocomplete="off"
+               [(ngModel)]="customerInfo.age"
+               formControlName="age">
+        <div *ngIf="formGroup.get('age').invalid && formGroup.get('age').touched" class="validation">
+          <small *ngIf="formGroup.get('age').errors.required">Заполните обязательное поле</small>
+        </div>
+      </div>
+      <div class="form">
+        <label for="weight">Вес багажа</label>
+        <input type="text" id="weight"
+               placeholder="Введите вес багажа"
+               autocomplete="off"
+               [(ngModel)]="customerInfo.weight"
+               formControlName="weight">
+        <div *ngIf="formGroup.get('weight').invalid && formGroup.get('weight').touched" class="validation">
+          <small *ngIf="formGroup.get('weight').errors.required">Заполните обязательное поле</small>
+          <small *ngIf="formGroup.get('weight').errors.maxlength">Максимальное количество багажа не должен превышать 60 кг</small>
+        </div>
+      </div>
+      <button class="button" [disabled]="formGroup.invalid">Расчитать</button>
+    </form>
+
+  </section>
+
+  <section >
+    <span>Предложения:</span>
+    <div class="categories">
+      <div class="offers"  >
+        <div class="title">
+          <h4>Аэрофлот</h4>
+        </div>
+        <div class="tarifs">
+          <span>Эконом - {{totalArr[0]}} </span>
+          <span>Продвинутый - {{totalArr[1]}}</span>
+          <span>Люкс - {{totalArr[2]}}</span>
+        </div>
+      </div>
+      <div class="offers">
+        <div class="title">
+          <h4>РЖД</h4>
+        </div>
+        <div class="tarifs">
+          <span>Эконом - {{totalArr[3]}}</span>
+          <span>Продвинутый - {{totalArr[4]}}</span>
+          <span>Люкс - {{totalArr[5]}}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
