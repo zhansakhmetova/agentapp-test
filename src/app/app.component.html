@@ -1,7 +1,7 @@
 <main>
   <section class="container">
     <form [formGroup]="formGroup" (ngSubmit)="convert(customerInfo.distance, customerInfo.age, customerInfo.weight)">
-      <div class="form">
+      <div class="form-control">
         <label for="distance">Количество километров</label>
         <input type="text" id="distance"
                autocomplete="off"
@@ -13,7 +13,7 @@
           <small *ngIf="formGroup.get('distance').errors.maxlength">Максимальное количество 5</small>
         </div>
       </div>
-      <div class="form">
+      <div class="form-control">
         <label for="age">Возраст</label>
         <input type="text" id="age"
                placeholder="Введите возраст"
@@ -24,7 +24,7 @@
           <small *ngIf="formGroup.get('age').errors.required">Заполните обязательное поле</small>
         </div>
       </div>
-      <div class="form">
+      <div class="form-control">
         <label for="weight">Вес багажа</label>
         <input type="text" id="weight"
                placeholder="Введите вес багажа"
@@ -36,12 +36,12 @@
           <small *ngIf="formGroup.get('weight').errors.maxlength">Максимальное количество багажа не должен превышать 60 кг</small>
         </div>
       </div>
-      <button class="button" [disabled]="formGroup.invalid">Расчитать</button>
+      <button class="btn" [disabled]="formGroup.invalid">Расчитать</button>
     </form>
 
   </section>
 
-  <section >
+  <section class="container">
     <span>Предложения:</span>
     <div class="categories">
       <div class="offers"  >
